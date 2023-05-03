@@ -64,7 +64,7 @@
     "start:web": "yarn install-and-start -- website start",
     "start:https": "yarn install-and-start -- examples/demo-app start-local-https",
     "start:e2e": "yarn install-and-start -- examples/demo-app start-local-e2e",
-    "build": "rm -fr dist && babel src/{actions,components,reducers,cloud-providers,localization,tasks} --out-dir dist --source-maps inline --extensions '.ts,.tsx,.js,.jsx' --ignore '**/*.d.ts'",
+    "build": "rd /s /q dist && babel src/{actions,components,reducers,cloud-providers,localization,tasks} --out-dir dist --source-maps inline --extensions '.ts,.tsx,.js,.jsx' --ignore '**/*.d.ts'",
     "build:umd": "webpack --config ./webpack/umd.js --progress --env.prod",
     "build:types": "tsc --project tsconfig.production.json",
     "analyze": "yarn analyze:bundle",
@@ -81,7 +81,7 @@
     "typescript": "tsc --noEmit",
     "web": "(yarn && yarn install:web && yarn start:web)",
     "deploy": "yarn install:web && (cd website && yarn build)",
-    "clean": "rm -rf node_modules examples/**/node_modules website/node_modules",
+    "clean": "rd /s /q node_modules examples/**/node_modules website/node_modules",
     "release:patch": "git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags"
   },
   "files": [
